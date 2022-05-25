@@ -1,27 +1,25 @@
-<page>
-    <actionBar title="Home" />
-    <gridLayout>
-        <label class="info">
-            <formattedString>
-                <span class="fas" text="&#xf135;" />
-                <span text=" {message}" />
-            </formattedString>
-        </label>
-    </gridLayout>
-</page>
-
 <script lang="ts">
-    let message: string = "Blank Svelte Native App"
+  import Navbar from "./NavBar.svelte";
+  import { navigate } from "svelte-native";
 </script>
 
-<style>
-    .info .fas {
-        color: #3A53FF;
-    }
+<page>
+    <actionBar flat="true">
+        <stackLayout orientation="horizontal">
+            <label text="Home" fontSize="24" verticalAlignment="middle" />
+            <label text="About" fontSize="24" verticalAlignment="middle" />
+        </stackLayout>
+    </actionBar>
 
-    .info {
-        font-size: 20;
-        horizontal-align: center;
-        vertical-align: center;
-    }
+  <stackLayout>
+    <button
+      text="Navbar"
+      on:tap={() => navigate({ page: Navbar })}
+    />
+    <stackLayout />
+  </stackLayout>
+  </page>
+
+<style>
+ 
 </style>
