@@ -32,24 +32,45 @@
     <actionItem on:tap="{onTapEdit}" android.systemIcon="ic_menu_edit" android.position="actionBar" />
   </actionBar>
 
-  <stackLayout>
-    <button text="ATERRO DE RESÍDUOS" on:tap={()=> navigate({ page: Navbar })}
+  <flexboxLayout flexDirection="column" backgroundColor="">
+    <image src="https://i.ibb.co/QpGd7yV/delete-Outlined.png" />
+    <button text="Aterro de Resíduos" on:tap={()=> navigate({ page: Navbar })}
       />
+      <image src="https://i.ibb.co/x34yS32/360-24px.png" />
       <button text="SMO" on:tap={()=> navigate({ page: Navbar })}
         />
-        <button text="TOPOGRÁFICO" on:tap={()=> navigate({ page: Navbar })}
+        <image src="https://i.ibb.co/g3nwmHD/Area-Chart.png" />
+        <button text="Topográfico" on:tap={()=> navigate({ page: Navbar })}
           />
           <stackLayout />
-  </stackLayout>
+  </flexboxLayout>
 </page>
 
 <style>
-  .appBar {
-    background-color: #388E3C;
+  * {
+    background-color: #E5E5E5;
   }
 
-  label {
-    color: white;
+  .appBar {
+    background-color: #388E3C;
+    margin-bottom: 50;
+
+  }
+
+  .appBar label {
+    background-color: #388E3C;
+    color: #FFF;
     font-size: 20;
+  }
+
+  button {
+    color: #1B5E20;
+    background-color: #E5E5E5;
+    text-transform: uppercase;
+  }
+
+  image {
+    width: 200;
+    height: 200;
   }
 </style>
