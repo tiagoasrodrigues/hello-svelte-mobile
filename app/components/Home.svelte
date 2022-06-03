@@ -1,6 +1,7 @@
 <script lang="ts">
   import Navbar from "./NavBar.svelte";
   import { navigate } from "svelte-native";
+  import { Bluetooth } from '@nativescript-community/ble';
 
   function onTapSettings() {
     alert('Settings!');
@@ -17,6 +18,14 @@
   function onTapGoBack() {
     alert('Go back!');
   }
+
+  var bluetooth = new Bluetooth();
+
+  bluetooth.isBluetoothEnabled().then(
+  function(enabled) {
+    console.log("Enabled? " + enabled);
+  }
+);
 </script>
 
 <page>
