@@ -21,11 +21,27 @@
 
   var bluetooth = new Bluetooth();
 
+  import { Bluetooth } from '@nativescript-community/ble';
+  var bluetooth = new Bluetooth();
+
   bluetooth.isBluetoothEnabled().then(
-  function(enabled) {
-    console.log("Enabled? " + enabled);
-  }
-);
+    function (enabled) {
+      console.log("Enabled? " + enabled);
+    }
+  );
+
+//   bluetooth.startScanning({
+//   filters: [{serviceUUID:'180d'}],
+//   seconds: 4,
+//   onDiscovered: function (peripheral) {
+//   	console.log("Periperhal found with UUID: " + peripheral.UUID);
+//   }
+// }).then(function() {
+//   console.log("scanning complete");
+// }, function (err) {
+//   console.log("error while scanning: " + err);
+// });
+
 </script>
 
 <page>
