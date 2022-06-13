@@ -21,27 +21,23 @@
 
   var bluetooth = new Bluetooth();
 
-  import { Bluetooth } from '@nativescript-community/ble';
-  var bluetooth = new Bluetooth();
-
   bluetooth.isBluetoothEnabled().then(
     function (enabled) {
       console.log("Enabled? " + enabled);
     }
   );
 
-//   bluetooth.startScanning({
-//   filters: [{serviceUUID:'180d'}],
-//   seconds: 4,
-//   onDiscovered: function (peripheral) {
-//   	console.log("Periperhal found with UUID: " + peripheral.UUID);
-//   }
-// }).then(function() {
-//   console.log("scanning complete");
-// }, function (err) {
-//   console.log("error while scanning: " + err);
-// });
-
+  bluetooth.startScanning({
+    filters: [{ serviceUUID: '180d' }],
+    seconds: 4,
+    onDiscovered: function (peripheral) {
+      console.log("Peripheral found with UUID: " + peripheral.UUID);
+    }
+  }).then(function () {
+    console.log("scanning complete");
+  }, function (err) {
+    console.log("error while scanning: " + err);
+  });
 </script>
 
 <page>
@@ -56,19 +52,6 @@
     <actionItem on:tap="{onTapShare}" android.systemIcon="ic_menu_share" android.position="actionBar" />
     <actionItem on:tap="{onTapEdit}" android.systemIcon="ic_menu_edit" android.position="actionBar" />
   </actionBar>
-
-  <flexboxLayout flexDirection="column" backgroundColor="">
-    <image src="https://i.ibb.co/QpGd7yV/delete-Outlined.png" />
-    <button text="Aterro de Resíduos" on:tap={()=> navigate({ page: Navbar })}
-      />
-      <image src="https://i.ibb.co/x34yS32/360-24px.png" />
-      <button text="SMO" on:tap={()=> navigate({ page: Navbar })}
-        />
-        <image src="https://i.ibb.co/g3nwmHD/Area-Chart.png" />
-        <button text="Topográfico" on:tap={()=> navigate({ page: Navbar })}
-          />
-          <stackLayout />
-  </flexboxLayout>
 </page>
 
 <style>
@@ -86,16 +69,5 @@
     background-color: #388E3C;
     color: #FFF;
     font-size: 20;
-  }
-
-  button {
-    color: #1B5E20;
-    background-color: #E5E5E5;
-    text-transform: uppercase;
-  }
-
-  image {
-    width: 200;
-    height: 200;
   }
 </style>
