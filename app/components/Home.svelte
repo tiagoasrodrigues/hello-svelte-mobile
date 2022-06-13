@@ -27,8 +27,9 @@
     }
   );
 
+
   bluetooth.startScanning({
-    filters: [{ serviceUUID: '180d' }],
+    // filters: [{ serviceUUID: '180d' }],
     seconds: 4,
     onDiscovered: function (peripheral) {
       console.log("Peripheral found with UUID: " + peripheral.UUID);
