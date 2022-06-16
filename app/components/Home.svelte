@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Navbar from "./NavBar.svelte";
   import { navigate } from "svelte-native";
   import { Bluetooth } from '@nativescript-community/ble';
   import { Template } from 'svelte-native/components'
@@ -23,7 +22,7 @@
   let peripherals = ["one", 'two', 'three']
 
   function onPeripheralTap() {
-    alert("Peripheral found with UUID: ");
+    alert("Connected");
   }
 
   var bluetooth = new Bluetooth();
@@ -48,7 +47,7 @@
   });
 
   bluetooth.connect({
-     UUID: 'EA:D8:D1:1B:29:A5',
+     UUID: '07:53:42:0F:55:CF',
     onConnected: function (peripheral) {
       console.log("Peripheral connected with UUID: " + peripheral.UUID);
       alert("Peripheral connected with UUID: " + peripheral.UUID);
